@@ -33,11 +33,11 @@ public interface SmsInterface {
     @GET("{authKey}/SMSes/")
     @Headers("Content-Type: application/json")
     Observable<GetSMSCollectionResponse> JsonGetSMSCollection(@Path("authKey") String authKey,
-                                                        @Query("FromDate") String fromDate,
-                                                        @Query("ToDate") String toDate,
-                                                        @Query("SenderId") String senderId,
-                                                        @Query("Offset") String Offset,
-                                                        @Query("Limit") String Limit);
+                                                              @Query("FromDate") String fromDate,
+                                                              @Query("ToDate") String toDate,
+                                                              @Query("SenderId") String senderId,
+                                                              @Query("Offset") String Offset,
+                                                              @Query("Limit") String Limit);
 
     @POST("{authKey}/BulkSMSes/")
     @Headers("Content-Type: application/json")

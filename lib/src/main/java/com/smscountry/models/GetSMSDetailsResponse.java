@@ -14,7 +14,7 @@ public class GetSMSDetailsResponse {
 
     @SerializedName("Success")
     @Expose
-    private boolean success;
+    private String success;
 
     @SerializedName("Message")
     @Expose
@@ -32,12 +32,12 @@ public class GetSMSDetailsResponse {
         this.apiId = apiId;
     }
 
-    public boolean isSuccess() {
+    public String isSuccess() {
 
         return success;
     }
 
-    public void setSuccess(boolean success) {
+    public void setSuccess(String success) {
         this.success = success;
     }
 

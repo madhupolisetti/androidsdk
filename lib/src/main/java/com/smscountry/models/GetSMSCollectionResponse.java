@@ -20,9 +20,9 @@ public class GetSMSCollectionResponse {
     @Expose
     private String message;
 
-    @SerializedName("SMS")
+    @SerializedName("SMSes")
     @Expose
-    private Message[] sms;
+    private Message[] smses;
 
     public String getApiId() {
         return apiId;
@@ -50,12 +50,12 @@ public class GetSMSCollectionResponse {
         this.message = message;
     }
 
-    public Message[] getSms() {
+    public Message[] getSmses() {
 
-        return sms;
+        return smses;
     }
 
-    public void setSms(Message[] sms) {
-        this.sms = sms;
+    public void setSmses(Message[] smses) {
+        this.smses = smses;
     }
 }

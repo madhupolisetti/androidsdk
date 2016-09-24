@@ -28,7 +28,7 @@ public interface CallInterface {
     Observable<CreateNewCallResponse> JsonCreateNewCall(@Path("authKey") String authKey,
                                                         @Body CreateNewCallRequest body);
 
-    @GET("{authKey}/BulkCalls/")
+    @POST("{authKey}/BulkCalls/")
     @Headers("Content-Type: application/json")
     Observable<CreateBulkCallResponse> JsonCreateBulkCall(@Path("authKey") String authKey,
                                                          @Body CreateBulkCallRequest body);
@@ -59,7 +59,7 @@ public interface CallInterface {
     Observable<CreateNewCallResponse> XmlCreateNewCall(@Path("authKey") String authKey,
                                                         @Body CreateNewCallRequest body);
 
-    @GET("{authKey}/BulkCalls/")
+    @POST("{authKey}/BulkCalls/")
     @Headers("Content-Type: application/xml")
     Observable<CreateBulkCallResponse> XmlCreateBulkCall(@Path("authKey") String authKey,
                                                           @Body CreateBulkCallRequest body);

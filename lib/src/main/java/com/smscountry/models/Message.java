@@ -34,7 +34,7 @@ public class Message {
 
     @SerializedName("StatusTime")
     @Expose
-    private long statusTime;
+    private String statusTime;
 
     @SerializedName("Cost")
     @Expose
@@ -93,12 +93,12 @@ public class Message {
         this.status = status;
     }
 
-    public long getStatusTime() {
+    public String getStatusTime() {
 
         return statusTime;
     }
 
-    public void setStatusTime(long statusTime) {
+    public void setStatusTime(String statusTime) {
         this.statusTime = statusTime;
     }
 
