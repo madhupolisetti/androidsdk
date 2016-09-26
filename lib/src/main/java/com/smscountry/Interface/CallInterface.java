@@ -48,7 +48,7 @@ public interface CallInterface {
                                                      @Query("Offset") String Offset,
                                                      @Query("Limit") String Limit);
 
-    @PATCH("{authKey}/Calls/{callUUID}")
+    @PATCH("{authKey}/Calls/{callUUID}/")
     @Headers("Content-Type: application/json")
     Observable<DisconnectACallResponse> JsonDisconnectACall(@Path("authKey") String authKey,
                                                             @Path("callUUID") String callUUID);
@@ -79,7 +79,7 @@ public interface CallInterface {
                                                     @Query("Offset") String Offset,
                                                     @Query("Limit") String Limit);
 
-    @PATCH("{authKey}/Calls/{callUUID}")
+    @PATCH("{authKey}/Calls/{callUUID}/")
     @Headers("Content-Type: application/xml")
     Observable<DisconnectACallResponse> XmlDisconnectACall(@Path("authKey") String authKey,
                                                             @Path("callUUID") String callUUID);

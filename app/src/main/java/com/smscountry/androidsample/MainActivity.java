@@ -28,7 +28,8 @@ import rx.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ApiBaseUrl = "https://restapi.smscountry.com/v0.1/Accounts/";
+    //public static final String ApiBaseUrl = "https://restapi.smscountry.com/v0.1/Accounts/";
+    public static final String ApiBaseUrl = "http://64cfb6cd.ngrok.io/v0.1/Accounts/";
     public static final String AuthKey = "5PySDTbhHLVNjGCdeuHe";
     public static final String AuthToken = "dnxRAn6C2O3svfc0DSWrrCOiy6jDwXR8qWG4Wboz";
 
@@ -261,8 +262,7 @@ public class MainActivity extends AppCompatActivity {
         if(v.getId() == R.id.disconnectCall){
             CallService callService = new CallService(this.apiBase);
 
-            //callService.disconnectACall(callUuidString)
-            callService.disconnectACall("3d3d2629-e613-4616-b9ea-c572f928ea5b")
+            callService.disconnectACall(callUuidString)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<DisconnectACallResponse>() {
