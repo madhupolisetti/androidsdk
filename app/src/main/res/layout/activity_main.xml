@@ -88,4 +88,18 @@
         android:id="@+id/disconnectCall"
         android:text="Disconnect Call"
         android:onClick="disconnectCallClicked"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createNewGroup"
+        android:text="Create A New Group"
+        android:onClick="createNewGroup"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/createNewGroupCall"
+        android:text="Create A New Group Call"
+        android:onClick="createNewGroupCall"/>
 </LinearLayout>

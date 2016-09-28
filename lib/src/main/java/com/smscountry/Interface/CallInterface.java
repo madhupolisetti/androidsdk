@@ -1,13 +1,12 @@
 package com.smscountry.Interface;
 
-import com.smscountry.models.CreateBulkCallRequest;
-import com.smscountry.models.CreateBulkCallResponse;
-import com.smscountry.models.CreateNewCallRequest;
-import com.smscountry.models.CreateNewCallResponse;
-import com.smscountry.models.DisconnectACallResponse;
-import com.smscountry.models.GetCallDetailsResponse;
-import com.smscountry.models.GetCallsListResponse;
-import com.smscountry.models.GetSMSCollectionResponse;
+import com.smscountry.models.Calls.CreateBulkCallRequest;
+import com.smscountry.models.Calls.CreateBulkCallResponse;
+import com.smscountry.models.Calls.CreateNewCallRequest;
+import com.smscountry.models.Calls.CreateNewCallResponse;
+import com.smscountry.models.Calls.DisconnectACallResponse;
+import com.smscountry.models.Calls.GetCallDetailsResponse;
+import com.smscountry.models.Calls.GetCallsListResponse;
 
 import retrofit2.http.Body;
 import retrofit2.http.GET;

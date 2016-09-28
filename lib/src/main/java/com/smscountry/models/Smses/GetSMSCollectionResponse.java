@@ -1,12 +1,12 @@
-package com.smscountry.models;
+package com.smscountry.models.Smses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by jaya on 22/09/16.
+ * Created by jaya on 21/09/16.
  */
-public class GetSMSDetailsResponse {
+public class GetSMSCollectionResponse {
 
     @SerializedName("ApiId")
     @Expose
@@ -14,15 +14,15 @@ public class GetSMSDetailsResponse {
 
     @SerializedName("Success")
     @Expose
-    private String success;
+    private boolean success;
 
     @SerializedName("Message")
     @Expose
     private String message;
 
-    @SerializedName("SMS")
+    @SerializedName("SMSes")
     @Expose
-    private Message sms;
+    private Message[] smses;
 
     public String getApiId() {
         return apiId;
@@ -32,12 +32,12 @@ public class GetSMSDetailsResponse {
         this.apiId = apiId;
     }
 
-    public String isSuccess() {
+    public boolean isSuccess() {
 
         return success;
     }
 
-    public void setSuccess(String success) {
+    public void setSuccess(boolean success) {
         this.success = success;
     }
 
@@ -50,11 +50,12 @@ public class GetSMSDetailsResponse {
         this.message = message;
     }
 
-    public Message getSms() {
-        return sms;
+    public Message[] getSmses() {
+
+        return smses;
     }
 
-    public void setSms(Message sms) {
-        this.sms = sms;
+    public void setSmses(Message[] smses) {
+        this.smses = smses;
     }
 }

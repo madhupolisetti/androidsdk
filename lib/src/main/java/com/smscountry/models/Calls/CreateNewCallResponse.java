@@ -1,12 +1,12 @@
-package com.smscountry.models;
+package com.smscountry.models.Calls;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by jaya on 21/09/16.
+ * Created by jaya on 23/09/16.
  */
-public class SendBulkSMSResponse {
+public class CreateNewCallResponse {
 
     @SerializedName("ApiId")
     @Expose
@@ -14,19 +14,15 @@ public class SendBulkSMSResponse {
 
     @SerializedName("Success")
     @Expose
-    private Boolean success;
+    private boolean success;
 
     @SerializedName("Message")
     @Expose
     private String message;
 
-    @SerializedName("MessageUUIDs")
+    @SerializedName("CallUUID")
     @Expose
-    private String[] messageUUIDs;
-
-    @SerializedName("BatchId")
-    @Expose
-    private String batchId;
+    private String callUUID;
 
     public String getApiId() {
         return apiId;
@@ -36,15 +32,17 @@ public class SendBulkSMSResponse {
         this.apiId = apiId;
     }
 
-    public Boolean getSuccess() {
+    public boolean isSuccess() {
+
         return success;
     }
 
-    public void setSuccess(Boolean success) {
+    public void setSuccess(boolean success) {
         this.success = success;
     }
 
     public String getMessage() {
+
         return message;
     }
 
@@ -52,19 +50,12 @@ public class SendBulkSMSResponse {
         this.message = message;
     }
 
-    public String[] getMessageUUIDs() {
-        return messageUUIDs;
+    public String getCallUUID() {
+
+        return callUUID;
     }
 
-    public void setMessageUUIDs(String[] messageUUIDs) {
-        this.messageUUIDs = messageUUIDs;
-    }
-
-    public String getBatchId() {
-        return batchId;
-    }
-
-    public void setBatchId(String batchId) {
-        this.batchId = batchId;
+    public void setCallUUID(String callUUID) {
+        this.callUUID = callUUID;
     }
 }

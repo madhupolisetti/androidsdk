@@ -1,12 +1,12 @@
 package com.smscountry;
 
 import com.smscountry.Interface.SmsInterface;
-import com.smscountry.models.GetSMSCollectionResponse;
-import com.smscountry.models.GetSMSDetailsResponse;
-import com.smscountry.models.SendBulkSMSRequest;
-import com.smscountry.models.SendBulkSMSResponse;
-import com.smscountry.models.SendSMSRequest;
-import com.smscountry.models.SendSMSResponse;
+import com.smscountry.models.Smses.GetSMSCollectionResponse;
+import com.smscountry.models.Smses.GetSMSDetailsResponse;
+import com.smscountry.models.Smses.SendBulkSMSRequest;
+import com.smscountry.models.Smses.SendBulkSMSResponse;
+import com.smscountry.models.Smses.SendSMSRequest;
+import com.smscountry.models.Smses.SendSMSResponse;
 
 import rx.Observable;
 

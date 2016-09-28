@@ -1,4 +1,4 @@
-package com.smscountry.models;
+package com.smscountry.models.Calls;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by jaya on 23/09/16.
  */
-public class GetCallDetailsResponse {
+public class DisconnectACallResponse {
 
     @SerializedName("ApiId")
     @Expose
@@ -19,9 +19,4 @@ public class GetCallDetailsResponse {
     @SerializedName("Message")
     @Expose
     private String message;
-
-    @SerializedName("Call")
-    @Expose
-    private Call call;
-
 }

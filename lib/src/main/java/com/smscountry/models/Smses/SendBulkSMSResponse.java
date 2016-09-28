@@ -1,4 +1,4 @@
-package com.smscountry.models;
+package com.smscountry.models.Smses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by jaya on 21/09/16.
  */
-public class GetSMSCollectionResponse {
+public class SendBulkSMSResponse {
 
     @SerializedName("ApiId")
     @Expose
@@ -14,15 +14,19 @@ public class GetSMSCollectionResponse {
 
     @SerializedName("Success")
     @Expose
-    private boolean success;
+    private Boolean success;
 
     @SerializedName("Message")
     @Expose
     private String message;
 
-    @SerializedName("SMSes")
+    @SerializedName("MessageUUIDs")
     @Expose
-    private Message[] smses;
+    private String[] messageUUIDs;
+
+    @SerializedName("BatchId")
+    @Expose
+    private String batchId;
 
     public String getApiId() {
         return apiId;
@@ -32,17 +36,15 @@ public class GetSMSCollectionResponse {
         this.apiId = apiId;
     }
 
-    public boolean isSuccess() {
-
+    public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(boolean success) {
+    public void setSuccess(Boolean success) {
         this.success = success;
     }
 
     public String getMessage() {
-
         return message;
     }
 
@@ -50,12 +52,19 @@ public class GetSMSCollectionResponse {
         this.message = message;
     }
 
-    public Message[] getSmses() {
-
-        return smses;
+    public String[] getMessageUUIDs() {
+        return messageUUIDs;
     }
 
-    public void setSmses(Message[] smses) {
-        this.smses = smses;
+    public void setMessageUUIDs(String[] messageUUIDs) {
+        this.messageUUIDs = messageUUIDs;
+    }
+
+    public String getBatchId() {
+        return batchId;
+    }
+
+    public void setBatchId(String batchId) {
+        this.batchId = batchId;
     }
 }

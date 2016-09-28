@@ -1,4 +1,4 @@
-package com.smscountry.models;
+package com.smscountry.models.Calls;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,4 +1,4 @@
-package com.smscountry.models;
+package com.smscountry.models.Smses;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by jaya on 22/09/16.
  */
-public class SendSMSResponse {
+public class GetSMSDetailsResponse {
 
     @SerializedName("ApiId")
     @Expose
@@ -14,16 +14,15 @@ public class SendSMSResponse {
 
     @SerializedName("Success")
     @Expose
-    private Boolean success;
+    private String success;
 
     @SerializedName("Message")
     @Expose
     private String message;
 
-    @SerializedName("MessageUUID")
+    @SerializedName("SMS")
     @Expose
-    private String messageUUID;
-
+    private Message sms;
 
     public String getApiId() {
         return apiId;
@@ -33,15 +32,17 @@ public class SendSMSResponse {
         this.apiId = apiId;
     }
 
-    public Boolean getSuccess() {
+    public String isSuccess() {
+
         return success;
     }
 
-    public void setSuccess(Boolean success) {
+    public void setSuccess(String success) {
         this.success = success;
     }
 
     public String getMessage() {
+
         return message;
     }
 
@@ -49,11 +50,11 @@ public class SendSMSResponse {
         this.message = message;
     }
 
-    public String getMessageUUID() {
-        return messageUUID;
+    public Message getSms() {
+        return sms;
     }
 
-    public void setMessageUUID(String messageUUID) {
-        this.messageUUID = messageUUID;
+    public void setSms(Message sms) {
+        this.sms = sms;
     }
 }

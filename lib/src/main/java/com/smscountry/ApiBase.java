@@ -83,6 +83,7 @@ public class ApiBase {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(apiInterceptor);
         OkHttpClient client = httpClient.build();
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(this.loggingLevel);
         httpClient.addInterceptor(logging);

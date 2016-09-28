@@ -1,4 +1,4 @@
-package com.smscountry.models;
+package com.smscountry.models.Calls;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,12 +6,11 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by jaya on 23/09/16.
  */
-public class CreateNewCallRequest {
+public class CreateBulkCallRequest {
 
-
-    @SerializedName("Number")
+    @SerializedName("Numbers")
     @Expose
-    private String number;
+    private String[] numbers;
 
     @SerializedName("CallerId")
     @Expose
@@ -37,13 +36,12 @@ public class CreateNewCallRequest {
     @Expose
     private String xml;
 
-
-    public String getNumber() {
-        return number;
+    public String[] getNumbers() {
+        return numbers;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNumbers(String[] numbers) {
+        this.numbers = numbers;
     }
 
     public String getCallerId() {
@@ -92,6 +90,7 @@ public class CreateNewCallRequest {
     }
 
     public String getXml() {
+
         return xml;
     }
 
