@@ -108,13 +108,15 @@ public interface GroupsInterface {
     @Headers("Content-Type: application/json")
     Observable<BaseResponse> JsonUpdateMemberDetails(@Path("authKey") String authKey,
                                                      @Path("groupId") String groupId,
-                                                     @Path("memberId") String memberId);
+                                                     @Path("memberId") String memberId,
+                                                     @Body GroupMember member);
 
     @PATCH("{authKey}/Groups/{groupId}/Members/{memberId}/")
     @Headers("Content-Type: application/xml")
     Observable<BaseResponse> XmlUpdateMemberDetails(@Path("authKey") String authKey,
                                                     @Path("groupId") String groupId,
-                                                    @Path("memberId") String memberId);
+                                                    @Path("memberId") String memberId,
+                                                    @Body GroupMember member);
 
     @DELETE("{authKey}/Groups/{groupId}/Members/{memberId}/")
     @Headers("Content-Type: application/json")

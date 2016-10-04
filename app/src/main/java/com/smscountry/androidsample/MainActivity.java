@@ -19,11 +19,13 @@ import com.smscountry.models.Calls.CreateBulkCallResponse;
 import com.smscountry.models.Calls.CreateNewCallRequest;
 import com.smscountry.models.Calls.CreateNewCallResponse;
 import com.smscountry.models.Calls.DisconnectACallResponse;
+import com.smscountry.models.GroupCalls.GetGroupCallListResponse;
 import com.smscountry.models.GroupCalls.GroupCall;
 import com.smscountry.models.GroupCalls.GroupCallResponse;
 import com.smscountry.models.GroupCalls.Participant;
 import com.smscountry.models.Groups.CreateNewGroupRequest;
 import com.smscountry.models.Groups.CreateNewGroupResponse;
+import com.smscountry.models.Groups.GetGroupDetailsResponse;
 import com.smscountry.models.Groups.GroupMember;
 import com.smscountry.models.Smses.GetSMSCollectionResponse;
 import com.smscountry.models.Smses.GetSMSDetailsResponse;
@@ -308,42 +310,44 @@ public class MainActivity extends AppCompatActivity {
 
     public void createNewGroup(View v){
         if(v.getId() == R.id.createNewGroup){
-            GroupsService groupsService = new GroupsService(this.apiBase);
-
-            CreateNewGroupRequest createNewGroupRequest = new CreateNewGroupRequest();
-            createNewGroupRequest.setName("Family");
-            createNewGroupRequest.setTinyName("blabla");
-            createNewGroupRequest.setStartGroupCallOnEnter("91XXXXXXXXXX");
-            createNewGroupRequest.setEndGroupCallOnExit("");
-
-            GroupMember member1 = new GroupMember();
-            member1.setName("someone");
-            member1.setNumber("91XXXXXXXXXX");
-
-            GroupMember member2 = new GroupMember();
-            member2.setName("1");
-            member2.setNumber("91XXXXXXXXXX");
-            GroupMember[] members = {member1, member2};
-            createNewGroupRequest.setMembers(members);
-            groupsService.createNewGroup(createNewGroupRequest)
-                    .subscribeOn(Schedulers.newThread())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Subscriber<CreateNewGroupResponse>() {
-                        @Override
-                        public void onCompleted() {
-
-                        }
-
-                        @Override
-                        public void onError(Throwable e) {
-                            Log.w("Development", e.getMessage());
-                        }
-
-                        @Override
-                        public void onNext(CreateNewGroupResponse createNewGroupResponse) {
-                                Log.w("SMS Country SDK: ","Successfully Create new Group");
-                        }
-                    });
+            getGroupCallDetails("23");
+//            GroupsService groupsService = new GroupsService(this.apiBase);
+//
+//            final CreateNewGroupRequest createNewGroupRequest = new CreateNewGroupRequest();
+//            createNewGroupRequest.setName("Family1");
+//            createNewGroupRequest.setTinyName("blabla1");
+//            createNewGroupRequest.setStartGroupCallOnEnter("91XXXXXXXXXX");
+//            createNewGroupRequest.setEndGroupCallOnExit("");
+//
+//            GroupMember member1 = new GroupMember();
+//            member1.setName("someone1");
+//            member1.setNumber("91XXXXXXXXXX");
+//
+//            GroupMember member2 = new GroupMember();
+//            member2.setName("11");
+//            member2.setNumber("91XXXXXXXXXX");
+//            GroupMember[] members = {member1, member2};
+//            createNewGroupRequest.setMembers(members);
+//            groupsService.createNewGroup(createNewGroupRequest)
+//                    .subscribeOn(Schedulers.newThread())
+//                    .observeOn(AndroidSchedulers.mainThread())
+//                    .subscribe(new Subscriber<CreateNewGroupResponse>() {
+//                        @Override
+//                        public void onCompleted() {
+//
+//                        }
+//
+//                        @Override
+//                        public void onError(Throwable e) {
+//                            Log.w("Development", e.getMessage());
+//                        }
+//
+//                        @Override
+//                        public void onNext(CreateNewGroupResponse createNewGroupResponse) {
+//                            Log.w("SMS Country SDK: ","Successfully Create new Group");
+//                            getGroupCallDetails(createNewGroupResponse.getGroup().getId());
+//                        }
+//                    });
 
         }
     }
@@ -353,7 +357,7 @@ public class MainActivity extends AppCompatActivity {
             GroupCallsService groupCallsService = new GroupCallsService(apiBase);
 
             GroupCall groupCall = new GroupCall();
-            groupCall.setName("samplecall");
+            groupCall.setName("samplecall1");
             groupCall.setWelcomeSound("htp://yourdomain/welcomesoundurl");
             groupCall.setWaitSound("http://yourdomain/waitsoundurl");
             groupCall.setStartGroupCallOnEnter("91XXXXXXXXXX");
@@ -361,11 +365,11 @@ public class MainActivity extends AppCompatActivity {
             groupCall.setAnswerUrl("www.yourdomain.com/samplepage");
 
             Participant participant1=new Participant();
-            participant1.setName("someone");
+            participant1.setName("someone1");
             participant1.setNumber("91XXXXXXXXX");
 
             Participant participant2=new Participant();
-            participant2.setName("someone");
+            participant2.setName("someone2");
             participant2.setNumber("91XXXXXXXXX");
 
             Participant[] participants={participant1, participant2};
@@ -389,9 +393,58 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onNext(GroupCallResponse groupCallResponse) {
                             Log.w("SMS Country SDK: ","Successfully Create new Group Call");
+                            getGroupCallList();
                         }
                     });
         }
 
+    }
+
+    public void getGroupCallDetails(String groupId){
+        GroupsService groupsService = new GroupsService(apiBase);
+
+        groupsService.getGroupDetails(groupId)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<GetGroupDetailsResponse>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.w("Development", e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(GetGroupDetailsResponse getGroupDetailsResponse) {
+                        Log.w("SMS Country SDK: ","Successfully Create new Group Call");
+                    }
+                });
+    }
+
+    public void getGroupCallList(){
+        GroupCallsService groupCallsService = new GroupCallsService(apiBase);
+
+        groupCallsService.groupCallList("", "", "", "")
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<GetGroupCallListResponse>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.w("Development", e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(GetGroupCallListResponse getGroupCallListResponse) {
+                        Log.w("SMS Country SDK: ","Successfully Create new Group Call");
+                    }
+                });
     }
 }

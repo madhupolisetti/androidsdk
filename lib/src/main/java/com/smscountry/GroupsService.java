@@ -90,11 +90,14 @@ public class GroupsService {
     }
 
     public Observable<BaseResponse> updateMemberDetails(String groupId,
-                                                 String memberId){
+                                                        String memberId,
+                                                        GroupMember member){
         if(this.apiBase.getContentType() == "application/json"){
-            return this.groupsInterface.JsonUpdateMemberDetails(this.apiBase.getAuthKey(), groupId, memberId);
+            return this.groupsInterface.JsonUpdateMemberDetails(this.apiBase.getAuthKey(),
+                    groupId, memberId, member);
         }else{
-            return this.groupsInterface.XmlUpdateMemberDetails(this.apiBase.getAuthKey(), groupId, memberId);
+            return this.groupsInterface.XmlUpdateMemberDetails(this.apiBase.getAuthKey(),
+                    groupId, memberId, member);
         }
     }
 

@@ -9,15 +9,15 @@ import com.smscountry.models.BaseResponse;
  */
 public class GetAllMemberDetailsResponse extends BaseResponse {
 
-    @SerializedName("Member")
+    @SerializedName("Members")
     @Expose
-    private GroupMember[] member;
+    private GroupMember[] members;
 
-    public GroupMember[] getMember() {
-        return member;
+    public GroupMember[] getMembers() {
+        return members;
     }
 
-    public void setMember(GroupMember[] member) {
-        this.member = member;
+    public void setMembers(GroupMember[] members) {
+        this.members = members;
     }
 }
