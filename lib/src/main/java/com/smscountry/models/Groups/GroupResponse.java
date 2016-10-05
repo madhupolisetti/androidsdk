@@ -17,7 +17,7 @@ public class GroupResponse {
     @SerializedName("TinyName")
     @Expose
     private String tinyName;
-    @SerializedName("StartGroupOnEnter")
+    @SerializedName("StartGroupCallOnEnter")
     @Expose
     private String startGroupOnEnter;
     @SerializedName("EndGroupCallOnExit")

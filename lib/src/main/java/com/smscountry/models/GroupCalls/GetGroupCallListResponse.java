@@ -11,14 +11,14 @@ public class GetGroupCallListResponse extends BaseResponse {
 
     @SerializedName("GroupCalls")
     @Expose
-    private GroupCall groupCalls;
+    private GroupCall[] groupCalls;
 
     /**
      *
      * @return
      * The groupCalls
      */
-    public GroupCall getGroupCalls() {
+    public GroupCall[] getGroupCalls() {
         return groupCalls;
     }
 
@@ -27,7 +27,7 @@ public class GetGroupCallListResponse extends BaseResponse {
      * @param groupCalls
      * The GroupCall
      */
-    public void setGroupCalls(GroupCall groupCalls) {
+    public void setGroupCalls(GroupCall[] groupCalls) {
         this.groupCalls = groupCalls;
     }
 }
